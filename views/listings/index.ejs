@@ -1,0 +1,67 @@
+<% layout("/layouts/boilerplate") %>
+<style>
+  #filters{
+    display: flex;
+    text-align: center;
+  }
+  .filter{
+    margin-top: 1rem;
+    margin-right: 2rem;
+    font-size: 0.8rem;
+    opacity: 0.7;
+  }
+  .filter:hover{
+    opacity: 1;
+    cursor: pointer;
+  }
+  .tax-toggle{
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding: 0.6rem;
+    border-radius: 15px;
+    margin-left: 4rem;
+    font-size: 1.10rem;
+    border: 1px solid rgb(165, 165, 165);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  .form-check-input{
+    cursor: pointer;
+  }
+  @media (max-width: 870px){
+    #filters{
+      background-color: white;
+      color: white; 
+    }
+    .tax-toggle{
+      border:  none;
+    }
+    #flexSwitchCheckDefault{
+      display: none;
+    }
+    .card{
+      margin-left: 10% !important;
+      width: 80% !important;
+    }
+  }
+</style>
+
+    <div class="row row-cols-lg-3 row-cols-md-2 row-cols-sm-1 mt-5">        <%  for(let listing of allListing){ %>
+            <a href="/listings/<%= listing._id%>" class="listing-link">
+                <div class="card col listing-card">
+                    <img src="<%= listing.image.url%>" class="card-img-top listing-image" alt="listing_image" style="height: 20rem;">
+                    <div class="card-img-overlay"></div>
+                    <div class="card-body">
+                      <p class="card-text mt-2"> 
+                        <b><%= listing.title %> </b><br>
+                        <!-- &#8377; price remaining -->Cost : 
+                        &#8377; <%=listing.price.toLocaleString("en-IN")%><br>
+                      </p>
+                    </div>
+                  </div>
+            </a>
+            
+              <% } %>
+    </div>
+

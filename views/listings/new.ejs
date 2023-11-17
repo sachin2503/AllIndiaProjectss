@@ -1,0 +1,52 @@
+<style>
+    .new-page-heading{
+        margin-bottom: 2rem;
+        color: rgb(0, 0, 0);
+    }
+</style>
+
+<% layout("/layouts/boilerplate") %>
+<div class="row mt-3">
+    <div class="col-8 offset-2">
+        <h2 class="new-page-heading">Add new Project</h2>
+    <form  method="POST" action="/listings" class="needs-validation" novalidate enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Project title</label>
+            <input type="text" name="listing[title]" placeholder="Add a project title" class="form-control" required />
+            <div class="valid-feedback">Title looks good!</div>
+            <div class="invalid-feedback">Please enter a title</div>
+        </div>
+        <div class="mb-3">
+            <label for="Location" class="form-label">Team Name</label>
+            <input type="text" name="listing[location]" placeholder="Team Lakshya"class="form-control" required /> 
+            <div class="invalid-feedback">Enter Team Name</div> 
+            </div>
+        <div class="mb-3">
+            <label for="Description" class="form-label">Description</label>
+            <textarea name="listing[description]" cols="30" rows="5" class="form-control" required></textarea>
+            <div class="invalid-feedback">Please enter a short description</div>
+             
+        </div>
+        <div class="mb-3"> 
+            <label for="Image" class="form-label">Upload project Image</label>
+            <input type="file" name="listing[image]"class="form-control" required />
+             
+        </div>
+        <div class="row">
+        <div class="mb-3">
+            <label for="Price" class="form-label">Cost</label>
+            <input  name="listing[price]" placeholder="1200"class="form-control" required />
+            <div class="invalid-feedback">Cost should be valid</div>
+        </div>
+        <div class="mb-3">
+        <label for="Country" class="form-label">College Name</label>
+        <input type="text" name="listing[country]" placeholder="JSPM's Rajarshi Shahu College Of Engineering, Tathawade."class="form-control" required />
+        <div class="invalid-feedback">college name should be valid</div>
+        </div>             
+        </div>
+        <button class="btn btn-dark add-btn mb-3">Add</button>
+        </form>          
+    </div>      
+</div>
+
+ 
